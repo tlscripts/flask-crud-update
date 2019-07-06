@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///example.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///example2.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 class User(db.Model):
@@ -14,25 +14,25 @@ class User(db.Model):
     two = db.Column(db.String(200))
 
 class EditUser:
-    def first(idno, newname):
+    def first(self, idno, newname):
         q = User.query.filter_by(id=idno).first()
         q.first = newname
         db.session.add(q)
         db.session.commit()
 
-    def last(idno, newname):
+    def last(self, idno, newname):
         q = User.query.filter_by(id=idno).first()
         q.last = newname
         db.session.add(q)
         db.session.commit()
 
-    def one(idno, newname):
+    def one(self, idno, newname):
         q = User.query.filter_by(id=idno).first()
         q.one = newname
         db.session.add(q)
         db.session.commit()
 
-    def two(idno, newname):
+    def two(self, idno, newname):
         q = User.query.filter_by(id=idno).first()
         q.two = newname
         db.session.add(q)
@@ -48,5 +48,6 @@ def generate():
 
 # generate()
 
-# EditUser.first(5, 'Michael')
-# EditUser.last(5, 'Jordan')
+edit = EditUser()
+edit.first(5, 'Michael')
+edit.last(5, 'Jordan')
