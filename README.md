@@ -13,8 +13,11 @@ ___
 * Now comment the generate() line and uncomment the 2 lines below it.
 * You'll notice each of those functions could exist on their own, but it may appear messy as your fields and number of tables grow. To prevent confusion, this is a nice way to organize your tables with class namespaces.
 * Run the following lines. The first argument refers to the unique identifier of each row and depending on what you want to change is as easy as refering to it by its field name.
-* EditUser.first(5, 'Michael')
-* EditUser.last(5, 'Jordan')
+
+* Instanciate and use with instance. Or i guess you could make this a @staticmethod
+* edit = EditUser()
+* edit.first(5, 'Michael')
+* edit.last(5, 'Jordan')
 * Refresh the database and you should see:
 
 ![](image2.png)
